@@ -4,7 +4,7 @@ declare_id!("4YtkEncmr4k5NBoq561ir1eXsrJENvWV33DKSxY2KnQj");
 
 // data structure for the data account
 #[account]
-pub struct CalucatorAccountData{
+pub struct CalculatorAccountData{
     pub num:u64,
 }
 
@@ -12,7 +12,7 @@ pub struct CalucatorAccountData{
 #[derive(Accounts)]
 pub struct Initialize<'info>{
     #[account(init, payer = signer, space = 8+8)]
-    pub new_account: Account<'info, CalucatorAccountData>,
+    pub new_account: Account<'info, CalculatorAccountData>,
 
     #[account(mut)]
     pub signer:Signer<'info>,
@@ -23,7 +23,7 @@ pub struct Initialize<'info>{
 #[derive(Accounts)]
 pub struct Double<'info>{
     #[account(mut)]
-    pub account: Account<'info,CalucatorAccountData>,
+    pub account: Account<'info,CalculatorAccountData>,
 
     pub signer: Signer<'info>,
 }
@@ -31,7 +31,7 @@ pub struct Double<'info>{
 #[derive(Accounts)]
 pub struct Half<'info>{
     #[account(mut)]
-    pub account: Account<'info,CalucatorAccountData>,
+    pub account: Account<'info,CalculatorAccountData>,
 
     pub signer: Signer<'info>,
 }
@@ -39,7 +39,7 @@ pub struct Half<'info>{
 #[derive(Accounts)]
 pub struct Add<'info>{
     #[account(mut)]
-    pub account: Account<'info,CalucatorAccountData>,
+    pub account: Account<'info,CalculatorAccountData>,
 
     pub signer: Signer<'info>,
 }
@@ -47,7 +47,7 @@ pub struct Add<'info>{
 #[derive(Accounts)]
 pub struct Substract<'info>{
     #[account(mut)]
-    pub account: Account<'info,CalucatorAccountData>,
+    pub account: Account<'info,CalculatorAccountData>,
     
     pub signer: Signer<'info>,
 }
